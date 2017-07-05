@@ -93,8 +93,8 @@ public class equipeSelect : MonoBehaviour {
                 foreach (var x in equipe)
                 {
                     var eqNome = x.nome.ToString();
-                    //EquipeS.text = eqNome.ToString();
-                    equipito.options.Add(new Dropdown.OptionData() { text = eqNome });
+                    EquipeS.text = eqNome.ToString();
+                    //equipito.options.Add(new Dropdown.OptionData() { text = eqNome });
                             
                 }
                 equipito.RefreshShownValue();
@@ -107,8 +107,8 @@ public class equipeSelect : MonoBehaviour {
                 foreach (var x in equipe)
                 {
                     var eqNome = x.nome.ToString();
-                    //EquipeS.text = eqNome.ToString();
-                    equipito.options.Add(new Dropdown.OptionData() { text = eqNome});
+                    EquipeS.text = eqNome.ToString();
+                    //equipito.options.Add(new Dropdown.OptionData() { text = eqNome});
                 }
                 equipito.RefreshShownValue();
                 break;

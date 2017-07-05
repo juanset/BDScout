@@ -199,12 +199,12 @@ public class DataService : MonoBehaviour {
 		//}
 
 
-		//EQUIPE SELECIONA GENERO
+		//EQUIPE SELECIONA TABLA EQUIPE
 		public IEnumerable<equipeTabela> GetAddressEquipe(){
 			return _connection.Table<equipeTabela>();
 		}
-
-		public IEnumerable<equipeTabela> GetEquipeName(string genero)
+    //EQUIPE SELECIONA GENERO
+    public IEnumerable<equipeTabela> GetEquipeName(string genero)
 		{
 			return _connection.Table<equipeTabela>().Where(x => x.genero == genero);
 
