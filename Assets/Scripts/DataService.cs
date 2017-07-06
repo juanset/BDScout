@@ -199,12 +199,12 @@ public class DataService : MonoBehaviour {
 		//}
 
 
-		//EQUIPE SELECIONA TABLA EQUIPE
+		//EQUIPE SELECIONA GENERO
 		public IEnumerable<equipeTabela> GetAddressEquipe(){
 			return _connection.Table<equipeTabela>();
 		}
-    //EQUIPE SELECIONA GENERO
-    public IEnumerable<equipeTabela> GetEquipeName(string genero)
+
+		public IEnumerable<equipeTabela> GetEquipeName(string genero)
 		{
 			return _connection.Table<equipeTabela>().Where(x => x.genero == genero);
 
@@ -212,12 +212,12 @@ public class DataService : MonoBehaviour {
 
 		public IEnumerable<equipeTabela> GetEquipeName()
 		{
-			return _connection.Table<equipeTabela>().Where(x => x.id > 0);
+			return _connection.Table<equipeTabela>().Where(x => x.nome == "lolitos");
 
 		}
 
-    //CRIA NA BASE DE DADOS ----SCOUT
-    public scoutTabela criarScoutDB(int ataque1, int erro1, int bloqueio1, int contraAtaque1)
+		//CRIA NA BASE DE DADOS ----SCOUT
+		public scoutTabela criarScoutDB(int ataque1, int erro1, int bloqueio1, int contraAtaque1)
 		{
 			var scout = new scoutTabela
 			{

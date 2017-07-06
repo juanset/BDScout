@@ -9,13 +9,37 @@ using System.Collections.Generic;
 
 public class equipeSelect : MonoBehaviour {
     public Text DebugText;
-    public Dropdown equipito;
+    public Dropdown genero;
 
     public Text EquipeS;
+
+	public List <GameObject> equipeNova;
+	public GameObject grupoEquipe;
+	public int idEquipeNova = 0;
+	public Vector3 posicao;
+
+	public RectTransform grid;
+
+
+	public void addEquipes()
+	{
+		if (grid.childCount < equipeNova.Count) {
+			GameObject item =  Instantiate (equipeNova[grid.childCount], grid.position,Quaternion.identity) as GameObject;
+			item.transform.parent = grid.transform;
+			item.name = "EquipeNova" + idEquipeNova;
+
+		}
+		Debug.Log (idEquipeNova);
+
+		idEquipeNova++;
+	}
+
+
     // Use this for initialization
     private void Start()
     {
-        
+
+		addEquipes ();
     }
     
     public void SeleccionarEquipo (int genero) {
@@ -31,8 +55,8 @@ public class equipeSelect : MonoBehaviour {
                 ToConsole("Equipos: ");
                 ToConsole(equipe);
                 foreach (var x in equipe) {
-                    var eqNome = x.nome.ToString();
-                    EquipeS.text = eqNome.ToString();
+                    var hola = x.nome.ToString();
+                    EquipeS.text = hola.ToString();
                 }
                 break;
             case 2:
@@ -42,47 +66,12 @@ public class equipeSelect : MonoBehaviour {
                 ToConsole(equipe);
                 foreach (var x in equipe)
                 {
-                    var eqNome = x.nome.ToString();
-                    EquipeS.text = eqNome.ToString();
+                    var hola = x.nome.ToString();
+                    EquipeS.text = hola.ToString();
                 }
                 break;
         }
         ToConsole("Finaliza la búsqueda");
-    }
-    
-    public void MostrarTodosEquipos(int valor)
-    {
-        valor.ToString();
-        var ds = new DataService("dataBaseScout.db");
-        ToConsole("Empieza la busqueda " + valor);
-        var equipe = ds.GetAddressEquipe();
-        ToConsole("Bucando TODOS");
-        equipe = ds.GetEquipeName();
-        ToConsole("AllTeams: ");
-        ToConsole(equipe);
-        foreach (var x in equipe)
-        {
-         var eqNome = x.nome.ToString();
-         EquipeS.text = eqNome.ToString();
-         //equipito.options.Add(new Dropdown.OptionData() { text = eqNome });
-        }
-        equipito.RefreshShownValue();
-        equipito.value = 1;
-        equipito.value = 0;
-        equipito.RefreshShownValue();
-        ToConsole("Finaliza la búsqueda");
-    }
-
-    //ejemplo para manejar el dropdown
-    public void DropdownInput(int input)
-    {
-        Debug.Log("Seleccionada: " + input);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void ToConsole(IEnumerable<equipeTabela> x)
@@ -94,9 +83,18 @@ public class equipeSelect : MonoBehaviour {
         }
     }
 
+    // Update is called once per frame
+    void Update () {
+		
+	}
+   
     private void ToConsole(string msg)
     {
         DebugText.text += System.Environment.NewLine + msg;
         Debug.Log(msg);
     }
+    public void DropdownInput(int input) {
+        Debug.Log("Seleccionada: " + input);
+    }
+
 }
