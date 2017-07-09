@@ -193,11 +193,15 @@ public class DataService : MonoBehaviour {
 
 		}
 
-		//CAMPEONATO
-		//public IEnumerable<campeonatoTabela> GetAddressCampeonato(){
-		//return _connection.Table<campeonatoTabela>();
-		//}
+		//JOGOS
+		public IEnumerable<jogoTabela> GetAddressJogos(){
+		return _connection.Table<jogoTabela>();
+		}
 
+		//JOGADORES
+		public IEnumerable<jogadorTabela> GetAddressJogadores(){
+		return _connection.Table<jogadorTabela>();
+		}
 
 		//EQUIPE SELECIONA GENERO
 		public IEnumerable<equipeTabela> GetAddressEquipe(){

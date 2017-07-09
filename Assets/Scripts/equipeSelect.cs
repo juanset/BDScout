@@ -16,7 +16,6 @@ public class equipeSelect : MonoBehaviour {
 	public List <GameObject> equipeNova;
 	public GameObject grupoEquipe;
 	public int idEquipeNova = 0;
-	public Vector3 posicao;
 
 	public RectTransform grid;
 
