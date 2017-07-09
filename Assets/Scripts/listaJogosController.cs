@@ -14,9 +14,10 @@ public class listaJogosController : MonoBehaviour {
 	public List <GameObject> jogoNovo;
 	public GameObject grupoJogos;
 	public int idJogoNovo = 0;
+    public Text linkResultados;
 
 
-	public RectTransform grid;
+    public RectTransform grid;
 
 	public Text data;
 	public Text adversario;
@@ -39,28 +40,19 @@ public class listaJogosController : MonoBehaviour {
 		var ds = new DataService ("dataBaseScout.db");
 		var jogos = ds.GetAddressJogos ();
 
-		int todosJogos = 1;
-
-
 		foreach (var x in jogos) 
 		{
 			var jogo = x.adversario.ToString ();
 			var idJogo = x.id.ToString ();
 
-			data.text = x.data.ToString ();
+            GameObject itemJogo = GameObject.Instantiate(jogoNovo[grid.childCount], grid.position, Quaternion.identity) as GameObject;
+            itemJogo.transform.parent = grid.transform;
+            itemJogo.name = "JogoNovo" + x;
+            data.text = x.data.ToString ();
 			adversario.text  = x.adversario.ToString ();
-
-			todosJogos = x.id;
+            linkResultados.text = "ID"+ x.id;
 		
 			Debug.Log (data + " " + adversario);
-		}
-
-		//verifica os IDs e cria
-		for (int i = 1; i <= todosJogos; i++)
-		{
-				GameObject itemJogo = GameObject.Instantiate (jogoNovo [grid.childCount], grid.position, Quaternion.identity) as GameObject;
-				itemJogo.transform.parent = grid.transform;
-				itemJogo.name = "JogoNovo" + i;
 		}
 			
 	}

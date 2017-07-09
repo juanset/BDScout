@@ -54,8 +54,8 @@ public class equipeSelect : MonoBehaviour {
                 ToConsole("Equipos: ");
                 ToConsole(equipe);
                 foreach (var x in equipe) {
-                    var hola = x.nome.ToString();
-                    EquipeS.text = hola.ToString();
+                    var equipeNome = x.nome.ToString();
+                    EquipeS.text = equipeNome.ToString();
                 }
                 break;
             case 2:
@@ -65,8 +65,8 @@ public class equipeSelect : MonoBehaviour {
                 ToConsole(equipe);
                 foreach (var x in equipe)
                 {
-                    var hola = x.nome.ToString();
-                    EquipeS.text = hola.ToString();
+                    var equipeNome = x.nome.ToString();
+                    EquipeS.text = equipeNome.ToString();
                 }
                 break;
         }
